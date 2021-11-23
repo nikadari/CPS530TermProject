@@ -1,18 +1,27 @@
 import React from 'react';
 import './Posts.css';
+import Profile from "@material-ui/core/Avatar";
 
 
-function Posts() {
+
+function Posts({username, caption}) {
     return (
-        <div>
-            <h3>Username</h3>
-
-            <img className="post_image" src = './resources/dog.jpg'></img>
+        <div className="posts">
+            <div className = "profile_header">
+                <Profile
+                    className="profile_pic"
+                    alt='Person'
+            
+                />
+                <h3>{username}</h3>
+            </div>
+            <img className="post_image" src = {require('./resources/dog.jpg')}
+                alt=''></img>
 
             {/*header -> profile pic and username */}
 
             {/*image */}
-            <h4 className="Caption"><strong>Username</strong> <weak>caption</weak></h4>
+            <h4 className="Caption"><strong>{username}</strong> <weak>{caption}</weak></h4>
             {/*username + caption*/}
             
             
