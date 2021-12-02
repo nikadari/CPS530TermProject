@@ -1,7 +1,7 @@
 //import logo from './logo.svg';
 import Topbar from './components/topbar/Topbar';
 import React from 'react';
-import Posts from './Posts';
+import Posts from './components/posts/Posts';
 import './App.css';
 import dog from "./resources/dog.jpg"
 import bunny from "./resources/bunny.jpg"
