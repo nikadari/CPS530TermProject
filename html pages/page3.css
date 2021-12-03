@@ -36,4 +36,13 @@ html {
     font-size: 80%;
   }
 
+  h1 {
+    margin: 100px 50px 50px 50px;
+    text-align: center;
+  }
 
+  .box-shadow { 
+      box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); 
+    }
+
+  
