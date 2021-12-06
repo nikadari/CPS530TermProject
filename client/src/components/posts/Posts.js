@@ -1,53 +1,58 @@
-import React from 'react';
-import './Posts.css';
+import React from "react";
+import "./Posts.css";
 import Profile from "@material-ui/core/Avatar";
 import { useState } from "react";
 import likeImg from "../../resources/like.png";
 
+function Posts({
+  username,
+  caption,
+  imgLocation,
+  avatar,
+  username2,
+  comment,
+  username3,
+  comment1,
+}) {
+  /*state variables needed for likes */
+  const [likes, setLikes] = useState(0);
+  const [isLiked, setIsLiked] = useState(false);
 
+  /* set state function, determines if like button is pressed or not */
+  const likeEvent = () => {
+    setLikes(isLiked ? likes - 1 : likes + 1);
+    setIsLiked(!isLiked);
+  };
 
-function Posts({username, caption, imgLocation, avatar, username2, comment, username3, comment1}) {
-    /*state variables needed for likes */
-    const [likes, setLikes] = useState(0)
-    const [isLiked, setIsLiked] = useState(false)
+  return (
+    <div className="posts">
+      {/*header -> profile pic and username */}
+      <div className="profile_header">
+        <Profile className="profile_pic" alt="Person" src={avatar} />
+        <h3>{username}</h3>
+      </div>
+      {/*image */}
+      <img className="post_image" src={imgLocation} alt=""></img>
 
-    /* set state function, determines if like button is pressed or not */
-    const likeEvent =() =>{
-        setLikes(isLiked ? likes-1 : likes+1)
-        setIsLiked(!isLiked)
-    }
-        
-    return (
+      <div className="CaptionLike">
+        <img className="likeBtn" src={likeImg} onClick={likeEvent} />
+        <h4 className="Caption">
+          <strong>{likes} likes </strong>
+        </h4>
+      </div>
 
-        <div className="posts">
-            {/*header -> profile pic and username */}
-            <div className = "profile_header">
-                <Profile
-                    className="profile_pic"
-                    alt='Person'
-                    src = {avatar}
-            
-                />
-                <h3>{username}</h3>
-            </div>
-            {/*image */}    
-            <img className="post_image" src = {imgLocation}
-                alt=''></img>
-
-            <div className="CaptionLike">
-                <img className="likeBtn" src={likeImg} onClick={likeEvent}/>
-                <h4 className="Caption"><strong>{likes} likes </strong></h4>
-            </div>
-
-            {/*username + caption*/}
-            <h4 className="Caption"><strong>{username}</strong> <weak>{caption}</weak></h4>
-            <h5 className="Caption"><strong>{username2}</strong> <weak>{comment}</weak></h5>
-            <h6 className="Caption"><strong>{username3}</strong> <weak>{comment1}</weak></h6>
-            
-            
-            
-        </div>
-    )
+      {/*username + caption*/}
+      <h4 className="Caption">
+        <strong>{username}</strong> {caption}
+      </h4>
+      <h5 className="Caption">
+        <strong>{username2}</strong> {comment}
+      </h5>
+      <h6 className="Caption">
+        <strong>{username3}</strong> {comment1}
+      </h6>
+    </div>
+  );
 }
 
-export default Posts
+export default Posts;
